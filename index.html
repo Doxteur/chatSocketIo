@@ -70,23 +70,30 @@
       var socket = io();
       $('form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
-        socket.emit('username', nick);
-        
+        socket.emit('username', nick , $('#m').val());
         socket.emit('chat message', $('#m').val());
+     
         $('#m').val('');
         return false;
 
       });
-
-      socket.on('username', function (username) {
-        $('#messages').append($('<h1>').text(username + ' : '));
-
+      socket.on('disconnect', function(){
+        $('#messages').append($('<h1>').text("Someone left"));
       });
+      
+      socket.on('username', function(username,msg) {
+        if(msg != 0){
+          $('#messages').append($('<h1>').text(username + ' : '));
+          }
+    });
+    
       socket.on('chat message', function (msg) {
+        if(msg != 0){
         $('#messages').append($('<li>').text(msg));
-
+        }
       });
     });
+    
   </script>
 </body>
 

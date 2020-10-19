@@ -7,12 +7,14 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    socket.on('username', (username) => {
     
-      io.emit('username', username);
-
+    socket.on('username', (username, msg) => {
+      io.emit('username', username , msg);
     });
-    
+    socket.on('disconnect', (username) => {
+      io.emit('disconnect', username);
+      
+    });
     socket.on('chat message', (msg) => {
       io.emit('chat message', msg);
   
@@ -21,5 +23,5 @@ io.on('connection', (socket) => {
 
 
 http.listen((process.env.PORT || 5000), () => {
-    console.log('listening on *:80');
+    console.log('listening on *:5000');
 });
