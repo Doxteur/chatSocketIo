@@ -12,14 +12,18 @@
 
     body {
       font: 13px Helvetica, Arial;
+      background-color: #389393;
     }
 
     form {
       background: #000;
       padding: 3px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      margin: auto;
+      position: absolute;
+      left: 25%;
+      width: 50%;
+      bottom: 5%;
+     
     }
 
     form input {
@@ -30,7 +34,7 @@
     }
 
     form button {
-      width: 9%;
+       min-width: 9%;
       background: rgb(130, 224, 255);
       border: none;
       padding: 10px;
@@ -38,12 +42,16 @@
 
     #messages {
       list-style-type: none;
-      margin: 0;
-      padding: 0;
+      margin: 35px;
+      padding: 35px;
+      background-color: darkslategrey;
     }
-
+    h1{
+      color : #f5a25d;
+    }
     #messages li {
       padding: 5px 10px;
+      color: #ebebeb;
     }
 
     #messages li:nth-child(odd) {
