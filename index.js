@@ -12,7 +12,7 @@ io.on('connection', (socket) => {
       io.emit('username', username);
 
     });
-    socket.once
+    
     socket.on('chat message', (msg) => {
       io.emit('chat message', msg);
   
